@@ -649,7 +649,7 @@ MonoBehaviour:
   attackPoint: {fileID: 386968788}
   Object: {fileID: 843094414}
   totalThrows: 100
-  throwCooldown: 1
+  throwCooldown: 0.2
   throwKey: 323
   throwForce: 50
   throwUpForce: 0

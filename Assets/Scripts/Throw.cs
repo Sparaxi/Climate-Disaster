@@ -10,7 +10,7 @@ public class Throw : MonoBehaviour
     public GameObject Object;
 
     public int totalThrows;
-    public int throwCooldown;
+    public float throwCooldown;
 
     public KeyCode throwKey = KeyCode.Mouse0;
     public float throwForce;
@@ -26,7 +26,7 @@ public class Throw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(throwKey)) 
+        if (Input.GetKeyDown(throwKey) && ready && totalThrows > 0)
         {
             Throwing();
         }
@@ -44,7 +44,9 @@ public class Throw : MonoBehaviour
 
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
 
-        Invoke(nameof(ResetThrow), throwCooldown);
+        totalThrows--;
+
+        Invoke(nameof(ResetThrow), throwCooldown);;
     }
 
     private void ResetThrow() 
